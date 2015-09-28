@@ -28,3 +28,26 @@ function pluralizer(noun, number) {
     console.log('there is' + number + noun);
   }
 }
+function backwardsLoop(num) {
+  num = 0;
+  while(i < 10 ) {
+    i--;
+    console.log(i);
+  }
+}
+
+var carNames = ['lexus', 'toyota', 'mercedes-benz'];
+var i = 0;
+while(i < carNames.length) {
+  console.log(carNames[i]);
+  i++;
+}
+
+var i = 0;
+while(i <= 20) {
+  i++;
+  if(i % 2 === 0) {
+    console.log(i);
+
+  }
+}
