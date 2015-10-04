@@ -13,12 +13,12 @@ function each (collection, callback) {
   if (Array.isArray(collection)) {
     for (var i = 0; i < collection.length; i++) {
         callback(collection[i]);
-    } else if(typeof collection === 'object') {
+    }
+  } else {
       for (var key in collection) {
-          callback(collection[key]);
-  }
-}
-return collection;
+        callback(collection[key]);
+      }
+    }
 }
 
 function even(num) {
@@ -51,7 +51,7 @@ function every(collection, callback) {
 function reduce(collection, accumulator, startVal ) {
 var accumulatorVal = startVal;
   each(collection, function(element) {
-    if(startVal === undefined) {
+    if(accumulatorVal === undefined) {
       accumulatorVal = element;
     }
       accumulatorVal = accumulator(accumulatorVal, element);
@@ -63,9 +63,15 @@ var accumulatorVal = startVal;
 
 
 function contains(collection, target) {
-  return reduce;
+  return reduce(collection, function(accumulatorVal, element) {
+    if (accumulatorVal) {
+      return true;
+    } else {
+        return element === target;
+    }}, false);
+}
 
   function add(a,b){
-  return a-b;
+  return a + b;
 }
 }
