@@ -14,7 +14,7 @@ function each (collection, callback) {
 else {
  for (var key in collection){
    if (collection.hasOwnProperty(key)){
-     callback (collection[i]);
+     callback (collection[key]);
      }
    }
  return collection;
@@ -25,6 +25,6 @@ function map (collection, callback) {
  var mapped = [];
  each (collection, function(element){
    mapped.push(callback(element));
- })
+ });
  return mapped;
 }
