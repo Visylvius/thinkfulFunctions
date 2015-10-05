@@ -74,4 +74,3 @@ function contains(collection, target) {
   function add(a,b){
   return a + b;
 }
-}
