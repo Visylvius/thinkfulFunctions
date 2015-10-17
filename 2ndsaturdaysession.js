@@ -61,6 +61,13 @@ var accumulatorVal = startVal;
 }
 
 
+//alternative way to write contains
+
+// function contains(collection, target) {
+//   return reduce(collection, function(accumulator, element) {
+//     return accumulator || element === target;
+//   }, false);
+// }
 
 
 function contains(collection, target) {
