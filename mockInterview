@@ -1,0 +1,76 @@
+var obj = {
+  name: 'loren',
+  location: 'San Francisco',
+  food: 'steak'
+
+};
+
+var myArr = [1,2,3,4,5]
+
+function print(x) {
+  console.log(x);
+}
+print(myArr[1]);
+print(obj.location);
+print(obj['location']);
+
+function add5(x) {
+  return x + 5;
+}
+
+function add(x, y) {
+  return x + y;
+}
+
+function mult(x, y) {
+  return x * y
+}
+
+function even (x) {
+  return x % 2 === 0;
+}
+
+function each(collection, callback) {
+  if (Array.isArray(collection)) {
+    for (var i = 0; i < collection.length; i++) {
+      callback(collection[i]);
+    }
+  } else {
+    for (var key in collection) {
+      callback(collection[key]);
+    }
+  }
+}
+
+
+function map(collection, callback) {
+  var result = [];
+  each(collection, function(element) {
+    result.push(callback(element));
+  })
+  return result;
+}
+
+function filter(collection, callback) {
+  var result = [];
+  each(collection, function(element) {
+    if(callback(element)) {
+      result.push(element);
+    }
+  })
+  return result;
+}
+
+function reduce(collection, callback, initialValue) {
+  var accumulator = initialValue;
+  each(collection, function(element) {
+    accumulator = accumulator ? callback(accumulator, element) : element;
+  })
+  return accumulator;
+}
+
+function contains(collection, target) {
+  return reduce(collection, function(accumulator, element) {
+    return accumulator || element === target;
+  }, false);
+}
