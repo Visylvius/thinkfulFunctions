@@ -23,6 +23,24 @@ function add(x,y) {
 function sub(x,y) {
   return x -  y;
 }
+function some(collection, callback) {
+  var result = false;
+  each(collection, function(element) {
+    if(callback(element)) {
+      result = true;
+    }
+  return result;
+  });
+}
+function every(collection, callback) {
+  var result = true;
+  each(collection, function(element) {
+    if(!callback(element)) {
+      result = false;
+    }
+  });
+  return result;
+}
 
 function map(collection, callback) {
   var result = [];
@@ -30,4 +48,24 @@ function map(collection, callback) {
     result.push(callback(element));
   });
   return result;
+}
+
+function filter(collection, callback) {
+  var result = [];
+  each(collection, function(element) {
+    if(callback(element)) {
+      result.push(element);
+    }
+  });
+  return result;
+}
+function reduce(collection, accumulator, initialVal) {
+  accumulatorVal = initialVal;
+  each(collection, function(element) {
+    if (accumulatorVal === undefined) {
+      accumulatorVal = element;
+    }
+    accumulatorVal = accumulator(accumulatorVal, element);
+  });
+  return accumulatorVal;
 }
