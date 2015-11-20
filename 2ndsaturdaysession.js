@@ -1,7 +1,9 @@
 var myArray = [1,2,3,4,5,6,7,8,9,10];
 function shuffle (cards) {
   for (var i = 0; i < myArray.length; i++) {
-    Math.floor(Math.random(myArray[i]));
+    var random = Math.floor(Math.random(myArray[i]) * myArray.length);
+    myArray[i] = random;
+    random = myArray[i];
   }
   return cards;
 }
@@ -49,13 +51,13 @@ function every(collection, callback) {
   return result;
 // if all the items are true then return true on the callback
 }
-function reduce(collection, accumulator, startVal ) {
+function reduce(collection, callback, startVal ) {
 var accumulatorVal = startVal;
   each(collection, function(element) {
     if(accumulatorVal === undefined) {
       accumulatorVal = element;
     }
-      accumulatorVal = accumulator(accumulatorVal, element);
+      accumulatorVal = callback(accumulatorVal, element);
    });
    return accumulatorVal;
 }
@@ -76,7 +78,8 @@ function contains(collection, target) {
       return true;
     } else {
         return element === target;
-    }}, false);
+    }
+  }, false);
 }
 
   function add(a,b){
