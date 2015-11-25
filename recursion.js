@@ -19,7 +19,7 @@ function countUp(arr, num) {
   }
   if (num !== arr.length) {
     console.log(arr[num]);
-    return countDown(arr, num + 1);
+    return countUp(arr, num + 1);
   } else {
     return 'done';
   }
